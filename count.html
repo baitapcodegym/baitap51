@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>đếm số lần xuất hiện</title>
+</head>
+<body>
+<script>
+    function binSearch(arr, data) {
+        return arr.indexOf(data);
+    }
+    function count(arr, data) {
+        let count = 0;
+        let position = binSearch(arr, data);
+        ++count;
+        for (let i = position+1; i < arr.length; ++i) {
+            if (arr[i] === data) {
+                ++count;
+            }
+            else {
+                break;
+            }
+        }
+        return count;
+    }
+    let nums = [];
+    for(let i=0;i<10;++i){
+        nums[i] = Math.floor(Math.random()*10);
+    }
+    alert(nums);
+    nums.sort();
+    let val = parseInt(prompt("Enter a value to count: "));
+    let retVal = count(nums, val);
+    document.write("Found " + retVal + " occurrences of " + val + ".");
+</script>
+</body>
+</html>
